@@ -1,0 +1,5 @@
+cd / C:\Users\202-25\Downloads\SoraHtml
+git init
+git remote add origin https://github.com/park-1004/SoraHtml.git
+git add .
+git commit -m ''
