@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이민희 게임</title>
+    <style>
+      .game-board { width: 600px; height: 600px; position: relative;}
+            .minhee { width: 100px; height: 100px; 
+                    position: absolute;
+                      display: none; 
+                    }
+            .minhee:hover { cursor: pointer;}
+            .minhee:active {opacity: 0.5;}
+    </style>
+</head>
+<body>
+ 
+
+    <h1>점수 : <span id="score">0</span></h1>
+    <h1>남은시간: <span id="time">60</span></h1>
+    <div class="game-board">
+        <img src="minhee.png" class="minhee" id="minhee" alt="" onclick="minheeClick()">
+    </div>
+    <script>
+             let score = 0;
+             let time = 60;
+             let gameInterval;
+             let timeDecreaseInterval;
+             let minhee = document.getElementById('minhee');
+             if(confirm("start?")) {
+                  gameInterval = setInterval(showMinhee, 1000);
+                  timeDecreaseInterval = setInterval(decreaseTime, 500);
+             }else{
+                  location.reload();
+             }
+             function showMinhee(){
+                 randomPosition();
+                 minhee.style.display = "block";
+                 setTimeout(hideMinhee, 500); 
+             }
+             function hideMinhee(){
+                 minhee.style.display = "none";
+             }
+             function randomPosition(){
+                let x = Math.floor(Math.random() * 500);
+                let y = Math.floor(Math.random() * 500);
+                minhee.style.left = `${x}px`;
+                minhee.style.top = `${y}px`;
+             }
+             function moleClick(){
+               score++;
+               document.getElementById('score').textContent = score;
+             }
+             function decreaseTime(){
+               time--;
+               document.getElementById('time').textContent = time;
+               if(time<=0) {
+                clearInterval(timeDecreaseInterval);
+                alert("게임 종료");
+                alert("점수 :" + score);
+               }
+             }
+    </script>
+</body>
+</html>z
