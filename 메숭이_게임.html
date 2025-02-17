@@ -90,7 +90,7 @@ function isPositionOccupied(position, occupiedPositions) {
     for (const occupiedPosition of occupiedPositions) {
         const dx = Math.abs(position.x - occupiedPosition.x);
         const dy = Math.abs(position.y - occupiedPosition.y);
-        const minDistance = 80; // Minimum distance between characters (adjust as needed)
+        const minDistance = 120; // Minimum distance between characters (adjust as needed)
 
         if (dx < minDistance && dy < minDistance) {
             return true; // Positions are too close
