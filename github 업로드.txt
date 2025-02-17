@@ -3,3 +3,5 @@ git init
 git remote add origin https://github.com/park-1004/SoraHtml.git
 git add .
 git commit -m ''
+git pull origin main
+git push origin main
